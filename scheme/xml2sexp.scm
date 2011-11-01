@@ -26,10 +26,11 @@
 
 (define (x->s port)
   "convert the document on <port> to SXML and pretty print it"
-  (pp (expand-features 
-       (ssax:xml->sxml port '()))
-      ) 
-)
+  (pp ;(expand-features 
+       (ssax:xml->sxml port '())) 
+  ;) 
+  )
+
 
 (define (main args)
   (cond ((= 0 (length args)) ; read from stdin when no command line args 
