@@ -4,7 +4,7 @@
 ; SXML specs: http://okmij.org/ftp/Scheme/SXML.html
 ; Eric Nichols <eric@ecei.tohoku.ac.jp>
 
-(use ssax sxpath sxml-transforms matchable)
+(use ssax sxpath sxml-transforms)
 
 (define (surface-in-body tag body)
   "leave the surface form in the body"
@@ -41,7 +41,7 @@
   "convert the document on <port> to SXML and pretty print it"
   (pp (expand-features 
        (ssax:xml->sxml port '())) 
-  ) 
+      )
   )
 
 
