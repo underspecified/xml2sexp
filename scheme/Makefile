@@ -4,12 +4,9 @@ TARGETS := xml2sexp.out
 
 all:	build install clean
 
-build:	$(TARGETS)
-
+build:		$(TARGETS)
 install:	$(TARGETS:.out=.install)
-
-clean:	$(TARGETS:.out=.clean)
-
+clean:		$(TARGETS:.out=.clean)
 cleanall:	$(TARGETS:.out=.cleanall)
 
 %.out:	%.scm
