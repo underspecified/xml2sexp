@@ -8,8 +8,8 @@ Tools
 
 Binaries are in bin/, source code is in scheme/
 
-* xml2sexp: converts cabocha XML to s-expressions, unpacking the Mecab
-  part-of-speech features into labeled attributes
+* cabocha2sxml: converts cabocha XML to SXML s-expressions, unpacking
+  the Mecab part-of-speech features into labeled attributes
 
 S-expression Format
 -------------------

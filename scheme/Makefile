@@ -1,6 +1,6 @@
 #!/usr/bin/make
 
-TARGETS := xml2sexp.out
+TARGETS := cabocha2sxml.out
 
 all:	build install clean
 

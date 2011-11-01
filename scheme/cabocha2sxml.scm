@@ -1,6 +1,6 @@
 #!/usr/local/bin/csi -ss
 
-; xml2sexp.scm: converts XML file into SXML
+; cabocha2sxml.scm: converts Cabocha XML output into SXML
 ; SXML specs: http://okmij.org/ftp/Scheme/SXML.html
 ; Eric Nichols <eric@ecei.tohoku.ac.jp>
 
@@ -32,8 +32,7 @@
 (define (expand-features sexp)
   (pre-post-order* 
    sexp
-   `(
-     (tok . ,surface-in-ann)
+   `((tok . ,surface-in-ann)
      (feature . ,labeled-features)
      ,@alist-conv-rules*) ) )
 
