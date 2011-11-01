@@ -1,8 +1,8 @@
 #!/usr/bin/make
 
-TARGETS := cabocha2sxml.out
+TARGETS := cabocha2sxml.out corenlp2sxml.out
 
-all:	build install clean
+all:	build install #clean
 
 build:		$(TARGETS)
 install:	$(TARGETS:.out=.install)
@@ -20,3 +20,5 @@ cleanall:	$(TARGETS:.out=.cleanall)
 
 %.cleanall:	%.clean
 	rm -f ../bin/$*
+
+.PHONY: build install clean cleanall %.out %.install %.clean %.cleanall
