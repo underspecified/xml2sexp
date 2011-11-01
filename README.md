@@ -8,8 +8,9 @@ Tools
 
 Binaries are in bin/, source code is in scheme/
 
-* cabocha2sxml: converts cabocha XML to SXML s-expressions, unpacking
-  the Mecab part-of-speech features into labeled attributes
+* cabocha2sxml: converts [Cabocha][] XML to SXML s-expressions,
+  unpacking the [Mecab][] [part-of-speech features][POS] into labeled
+  attributes
 
 S-expression Format
 -------------------
@@ -24,7 +25,9 @@ Dependencies
   + [Chicken Scheme][] > version 4.0
   + the [ssax][], [sxpath][], and [sxml-transforms][] modules
 
-
+[Cabocha]: http://code.google.com/p/cabocha/
+[Mecab]: http://mecab.sourceforge.net/
+[POS]: http://mecab.sourceforge.net/format.html
 [SXML]: http://okmij.org/ftp/Scheme/SXML.html
 [Chicken Scheme]: http://www.call-cc.org/
 [ssax]: http://wiki.call-cc.org/eggref/4/ssax
