@@ -6,29 +6,42 @@
 
 (use ssax sxpath sxml-transforms matchable)
 
+(define (surface-in-body tag body)
+  "leave the surface form in the body"
+  (let* ((attr (car body))
+	 (ann (cdr attr))
+	 (rest (drop-right ann 1))
+	 (feat (car (take-right ann 1)))
+	 (surface (cadr body)))
+    `(tok ,(append '(@) rest feat) ,surface)))
+
+(define (surface-in-ann tag body)
+  "put the surface form in the annotations"
+  (let* ((attr (car body))
+	 (ann (cdr attr))
+	 (rest (drop-right ann 1))
+	 (feat (car (take-right ann 1)))
+	 (surface (cadr body)))
+    `(tok ,(append '(@) rest `((surface ,surface)) feat))))
+
+(define (labeled-features tag body)
+  "split the mecab POS features into labeled annotations"
+  (zip '(pos1 pos2 pos3 pos4 ctype cform base read pron unk2 unk3) 
+       (string-split (car body) ",")))
+
 (define (expand-features sexp)
   (pre-post-order* 
-   sexp	   
+   sexp
    `(
-     (tok . ,(lambda (tag body)
-	       (let* ((attr (car body))
-		      (ann (cdr attr))
-		      (rest (drop-right ann 1))
-		      (feat (car (take-right ann 1)))
-		      (surface (cadr body)))
-		 `(tok ,(append '(@) rest `(surface ,surface)) 
-		       ,feat))))
-     (feature . ,(lambda (tag body)
-		(zip '(pos1 pos2 pos3 pos4 ctype cform 
-			    base read pron unk2 unk3) 
-		     (string-split (car body) ","))))
-		,@alist-conv-rules*) ) )
+     (tok . ,surface-in-ann)
+     (feature . ,labeled-features)
+     ,@alist-conv-rules*) ) )
 
 (define (x->s port)
   "convert the document on <port> to SXML and pretty print it"
-  (pp ;(expand-features 
+  (pp (expand-features 
        (ssax:xml->sxml port '())) 
-  ;) 
+  ) 
   )
 
 
