@@ -4,7 +4,7 @@
 ; SXML specs: http://okmij.org/ftp/Scheme/SXML.html
 ; Eric Nichols <eric@ecei.tohoku.ac.jp>
 
-(use ssax sxpath sxml-transforms)
+(use ssax sxml-transforms)
 
 (define (surface-in-body tag body)
   "leave the surface form in the body"
