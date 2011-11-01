@@ -14,12 +14,19 @@ Binaries are in bin/, source code is in scheme/
 S-expression Format
 -------------------
 
-All tools use [SXML revision 3.0](http://okmij.org/ftp/Scheme/SXML.html).
+All tools use [SXML][] revision 3.0.
 
 Dependencies
 ------------
 
 * binaries: none
 * source code
-  + [Chicken Scheme](http://www.call-cc.org/) > version 4.0
-  + the ssax, sxpath, and sxml-transforms modules
+  + [Chicken Scheme][] > version 4.0
+  + the [ssax][], [sxpath][], and [sxml-transforms][] modules
+
+
+[SXML]: http://okmij.org/ftp/Scheme/SXML.html
+[Chicken Scheme]: http://www.call-cc.org/
+[ssax]: http://wiki.call-cc.org/eggref/4/ssax
+[sxpath]: http://wiki.call-cc.org/eggref/4/sxpath
+[sxml-transforms]: http://wiki.call-cc.org/eggref/4/sxml-transforms
