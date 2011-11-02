@@ -1,6 +1,6 @@
 #!/usr/bin/make
 
-TARGETS := cabocha2sxml.out corenlp2sxml.out
+TARGETS := cabocha2sxml.out corenlp2sxml.out search-sxml.out
 
 all:	build install #clean
 
